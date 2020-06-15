@@ -16,6 +16,7 @@ class ScrollingObject extends Rectangle2D.Double {
 		return isActive;
 	}
 	
+	//move object along screen
 	public void increment(int fps) {
 		position += (Math.pow(speed, -1) / fps) * res.getWidth();	
 		isActive = startX - position > endX;

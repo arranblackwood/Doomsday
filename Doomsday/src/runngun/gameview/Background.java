@@ -23,6 +23,7 @@ class Background {
 		scrollAmount += SCROLL_SPEED / fps * res.width;
 	}
 	
+	//The background scrolls until the end of the image until the end, then it loops back to the start
 	public void draw(Graphics2D g2) {
 		//Image width / 1080p width * actual width
 		int width = (image.getWidth() / 1920) * res.width;

@@ -25,6 +25,7 @@ class BulletTrail {
 		
 		GeneralPath path = new GeneralPath();
 		
+		//calculating the trail shape
 		Point2D.Double p1 = getLengthAtAngle(points.get(0), points.get(lengthFps / 2), Math.PI / 2, 1),
 			   	   	   p2 = getLengthAtAngle(points.get(lengthFps / 2), points.get(lengthFps), Math.PI / 2, 6),
 			   	   	   p3 = getLengthAtAngle(points.get(lengthFps / 2), points.get(lengthFps), -Math.PI / 2, 6),

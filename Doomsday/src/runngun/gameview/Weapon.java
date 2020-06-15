@@ -28,6 +28,7 @@ class Weapon extends Rectangle2D.Double {
 		setRect(pos.getX() - recoilOffset, pos.getY() - (height / 2) + muzzleOffset, width, height);
 	}
 	
+	//iterate through different recoil animation phases
 	private void updateRecoil(double fps) {
 		if(recoilPhase > 0) {
 			if(recoilOffset < recoilAmount && recoilPhase == 1)

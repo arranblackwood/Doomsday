@@ -15,6 +15,7 @@ class BulletLinear extends Bullet {
 	
 	private Point2D.Double vector;
 	
+	//update speed based on resolution
 	private void setSpeed(Settings settings) {
 		speed = 20d * globalSpeed;
 		speedX = speed / settings.aspectRatio.width;
@@ -22,9 +23,11 @@ class BulletLinear extends Bullet {
 	}
 	
 	public void update(int fps) {
+		//iterate position by vector each frame
 		pos.x += (vector.x / fps);
 		pos.y += (vector.y / fps);
 		
+		//if bullet leaves frame, remove bullet
 		if(!new Rectangle2D.Double(0, 0, res.getWidth(), res.getHeight()).contains(pos))
 			isActive = false;
 		

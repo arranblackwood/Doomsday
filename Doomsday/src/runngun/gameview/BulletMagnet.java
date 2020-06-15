@@ -47,6 +47,7 @@ class BulletMagnet extends Bullet {
 		g.draw(trajectory);
 	}
 	
+	//bullet magnets travel along bezier curves at different points each frame
 	public void update(Enemy enemy, int fps) {
 		numPointsFps = numPoints * fps;
 		System.out.println(numPointsFps);
@@ -60,12 +61,11 @@ class BulletMagnet extends Bullet {
 		
 		pos++;
 		
-		//TODO: once path ended continue at angle
 		if(pos > numPointsFps) {
 			isActive = false;
 			return;
 		}
-		
+		//calculate bullet angle on bezier curve
 		Point2D.Double p1 = getBezierPoint(pos), p2 = getBezierPoint(pos + 1);
 		super.pos.setLocation(p1.x, p1.y);
 		

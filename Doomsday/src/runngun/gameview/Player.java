@@ -39,6 +39,7 @@ class Player extends Rectangle2D.Double {
 		
 		setJumpHeight(jumpHeightLinear);
 		
+		//check if jump is finished
 		if(((y + height) >= floor) && (jumpHeightLinear > 0.1))
 			resetJumpHeight();
 	}
@@ -50,6 +51,7 @@ class Player extends Rectangle2D.Double {
 		firstJumpHeight = 0;
 	}
 	
+	//loop through player animation
 	private Timer animTimer = new Timer(ANIM_DELAY, e -> {
 		if(animFrame < ANIM_FRAMES)
 			animFrame++;
@@ -79,6 +81,7 @@ class Player extends Rectangle2D.Double {
 	}
 	
 	public void jump() {
+		//wall running stuff that isnt in the game anymore
 		if(jumpState == 0 || (scrollingObjectManager.isPlayerTouching(ScrollingObjectManager.WALL) && jumpState == 1)) {
 			this.jumpState++;
 			

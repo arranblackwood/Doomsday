@@ -62,6 +62,9 @@ class Enemy {
 	}
 	
 	public void update(int fps) {
+		//really hacky way of trying to do random enemy movement
+		//basically it just does random turns either left or right
+		//until it hits a boundary then goes towards the center of the boundary until its back in the boundary
 		timeBeforeChangingAngle++;
 		if(timeBeforeChangingAngle > ANGLE_LOCK_TIME * fps && !lockAngle) {
 			if(Math.random() > 0.5 )
@@ -113,6 +116,7 @@ class Enemy {
 		startX = res.width / 2;
 		startY = res.height / 2;
 		
+		//calculate spawn location by spawning on a circle circumference on the outside of the visible area
 		Point2D.Double spawnOffset = RNGUtils.getVector(Math.random() * -Math.PI / 2, RNGUtils.getDistance(startX, startY, res.width, 0));
 		
 		startX += spawnOffset.x;
